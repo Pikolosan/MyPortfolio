@@ -1,157 +1,71 @@
-# Parth Chaudhary - Portfolio Website
+# Portfolio Website Deployment Guide
 
-A minimal portfolio website showcasing Full Stack Web Development and AI/ML projects. Built with React, TypeScript, and Express with a clean design inspired by modern web aesthetics.
+## Deploy to Vercel
 
-## 🌟 Features
+This portfolio website is ready to be deployed on Vercel. Here's how to do it:
 
-- **Clean, Minimal Design**: Black and white color scheme with smooth animations
-- **Project Showcase**: 10 projects across Full Stack, AI/ML, Frontend, and CSS Animations
-- **Advanced Filtering**: Filter projects by category (All, AI/ML, FullStack, Frontend, CSS Animations, Open Source)
-- **Dark/Light Theme**: Toggle between themes with system preference detection
-- **Responsive Design**: Optimized for all screen sizes
-- **Smooth Navigation**: Section-based scrolling with full-screen layouts
-- **Contact Integration**: Social media links and contact information
+### Method 1: Using Vercel CLI (Recommended)
 
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js 20+ installed on your system
-- npm or yarn package manager
-
-### Installation Steps
-
-1. **Clone or Download the Project**
+1. **Install Vercel CLI**:
    ```bash
-   # If using git
-   git clone <your-repo-url>
-   cd portfolio-website
-   
-   # Or download and extract the project files
+   npm i -g vercel
    ```
 
-2. **Install Dependencies**
+2. **Login to Vercel**:
    ```bash
-   npm install
+   vercel login
    ```
 
-3. **Start Development Server**
+3. **Deploy from this directory**:
    ```bash
-   npm run dev
+   vercel
    ```
 
-4. **Open Your Browser**
-   - Navigate to `http://localhost:5000`
-   - The website should load with your portfolio
+4. **Follow the prompts**:
+   - Project name: `portfolio-website` (or your preferred name)
+   - Directory to deploy: `./` (current directory)
+   - Link to existing project? No (first time)
 
-## 🛠️ Project Structure
+### Method 2: Using Vercel Dashboard
 
-```
-├── client/                 # Frontend React application
-│   ├── src/
-│   │   ├── components/     # Reusable UI components
-│   │   ├── pages/         # Main pages (home, etc.)
-│   │   ├── lib/           # Utilities and configuration
-│   │   └── hooks/         # Custom React hooks
-├── server/                # Backend Express server
-│   ├── index.ts           # Main server file
-│   ├── routes.ts          # API routes
-│   └── vite.ts            # Vite integration
-├── shared/                # Shared types and schemas
-└── package.json           # Dependencies and scripts
-```
+1. Go to [vercel.com](https://vercel.com)
+2. Sign up/login with your preferred account
+3. Click "New Project"
+4. Import from your Git repository (GitHub, GitLab, or Bitbucket)
+5. Configure the project:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
 
-## 🎨 Customization
+### Environment Variables
 
-### Adding New Projects
+If your project uses environment variables, add them in the Vercel dashboard:
 
-1. Open `client/src/pages/home.tsx`
-2. Find the `projects` array
-3. Add your new project following this format:
+1. Go to your project dashboard
+2. Navigate to "Settings" → "Environment Variables"
+3. Add any required variables (like `DATABASE_URL` if using a database)
 
-```typescript
-{
-  id: "unique-id",
-  title: "Project Title",
-  description: "Project description...",
-  category: "fullstack" | "ai-ml" | "frontend" | "css-animations" | "open-source",
-  image: "https://your-image-url.jpg",
-  technologies: ["Tech1", "Tech2", "Tech3"],
-  githubUrl: "https://github.com/username/repo",
-  liveUrl: "https://your-live-demo.com", // Optional
-  badge: "Category Badge",
-  badgeColor: "bg-color-class"
-}
-```
+### Custom Domain (Optional)
 
-### Updating Personal Information
+1. In your Vercel project dashboard
+2. Go to "Settings" → "Domains"
+3. Add your custom domain
 
-1. **Name and Title**: Edit the hero section in `client/src/pages/home.tsx`
-2. **About Section**: Update the about text in the same file
-3. **Contact Links**: Update social media URLs in the contact section
-4. **Profile Image**: Replace the image URL in the hero section
+## Project Structure
 
-### Changing Colors/Theme
+- `client/` - React frontend application
+- `server/` - Express backend API
+- `shared/` - Shared types and schemas
+- `api/` - Vercel serverless functions
+- `dist/` - Build output directory
 
-1. Open `client/src/index.css`
-2. Modify the CSS variables in `:root` (light theme) and `.dark` (dark theme)
-3. Update color values to match your preferred palette
+## Features
 
-## 📱 Responsive Design
-
-The website is fully responsive and optimized for:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (320px - 767px)
-
-## 🔧 Technologies Used
-
-- **Frontend**: React 18, TypeScript, Tailwind CSS
-- **Backend**: Node.js, Express.js
-- **UI Components**: shadcn/ui, Radix UI
-- **Build Tool**: Vite
-- **Icons**: Lucide React
-- **Routing**: Wouter
-- **State Management**: TanStack React Query
-
-## 📄 Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run linting
-
-## 🌐 Deployment
-
-### Option 2: Vercel Deployment
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run `vercel` in project directory
-3. Follow the prompts to deploy
-
-### Option 3: Netlify Deployment
-1. Build the project: `npm run build`
-2. Drag the `dist` folder to Netlify's deploy area
-3. Your site will be live at a Netlify URL
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Make your changes
-4. Commit: `git commit -am 'Add new feature'`
-5. Push: `git push origin feature-name`
-6. Submit a pull request
-
-## 📧 Contact
-
-- **Email**: parthchaudhary.jc@yahoo.com
-- **LinkedIn**: https://www.linkedin.com/in/parth-chaudhary-aa82ab262/
-- **GitHub**: https://github.com/Pikolosan
-
-## 📝 License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-Built by Parth Chaudhary
+- ✅ Full-stack React + Express application
+- ✅ TypeScript throughout
+- ✅ Tailwind CSS styling
+- ✅ Dark/Light theme support
+- ✅ Mobile responsive design
+- ✅ Project filtering and categories
+- ✅ Contact form functionality
+- ✅ Optimized for Vercel deployment
