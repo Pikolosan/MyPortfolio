@@ -285,7 +285,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-4">
                 <Button 
                   onClick={() => scrollToSection('projects')}
-                  className="px-8 py-3"
+                  className="px-8 py-3 dark:hover:bg-gray-300 hover:bg-gray-800"
                   data-testid="view-projects-btn"
                 >
                   View Projects
@@ -304,9 +304,16 @@ export default function Home() {
                 <Button
                   asChild
                   variant="outline"
-                  className="px-6 py-1 border transition-colors
-                    bg-white text-black hover:bg-gray-100 
-                    dark:bg-gray-900 dark:text-white dark:border-gray-700 dark:hover:bg-gray-800"
+                  className="
+                    overflow-hidden flex flex-col
+                    border transition-all duration-300
+                    bg-white text-black hover:bg-gray-100
+                    dark:bg-black dark:text-white dark:hover:bg-gray-800
+
+                    shadow-sm hover:shadow-md
+                    ring-1 ring-black/10 hover:ring-black/20
+                    dark:ring-white/10 dark:hover:ring-white/20
+                  "
                   data-testid="resume-btn"
                 >
                   <a href={Resume} target="_blank" rel="noopener noreferrer">
@@ -336,7 +343,7 @@ export default function Home() {
               
               <div className="space-y-9">
                 <p className="text-lg leading-relaxed text-muted-foreground">
-                  I'm a passionate developer with expertise in <strong className="text-foreground">Full Stack Web Development</strong> 
+                  I'm a passionate developer with expertise in <strong className="text-foreground">Full Stack Web Development </strong> 
                   and <strong className="text-foreground">Artificial Intelligence/Machine Learning</strong>.
                 </p>
                 
@@ -382,7 +389,12 @@ export default function Home() {
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
               {filteredProjects.map((project) => {
               return (
-                  <Card key={project.id} className="overflow-hidden flex flex-col">
+                  <Card key={project.id} className="overflow-hidden flex flex-col 
+             shadow-xl hover:shadow-2xl
+             ring-1 ring-black/10 hover:ring-black/20 
+             dark:shadow-[0_2px_10px_rgba(255,255,255,0.08)] dark:hover:shadow-[0_4px_15px_rgba(255,255,255,0.12)]
+             dark:ring-white/10 dark:hover:ring-white/20
+             transition-all duration-300">
                   <img 
                     src={project.image} 
                     alt={project.title}
@@ -453,7 +465,6 @@ export default function Home() {
                     </div>
                   </CardFooter>
                   </Card>
-
                 );
               })}
             </div>
@@ -473,7 +484,7 @@ export default function Home() {
                 const IconComponent = category.icon;
                 return (
                   <div key={category.title} className="space-y-4">
-                    <div className="flex items-center justify-center gap-3 mb-4">
+                    <div className="flex items-center justify-center gap-3 mb-5">
                       <IconComponent className="w-6 h-6 text-primary" />
                       <h3 className="text-xl font-semibold">
                         {category.title}
@@ -484,7 +495,12 @@ export default function Home() {
                         <Badge 
                           key={skill} 
                           variant="secondary"
-                          className="text-sm py-1 px-3"
+                          className="text-sm py-1 px-3
+                           hover:shadow-md
+                          ring-1 ring-black/10 hover:ring-black/20
+                           dark:hover:shadow-[0_2px_5px_rgba(255,255,255,0.2)]
+                          dark:ring-white/10 dark:hover:ring-white/20
+                          transition-all duration-200"
                         >
                           {skill}
                         </Badge>
