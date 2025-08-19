@@ -1,6 +1,6 @@
 # Overview
 
-This is a full-stack portfolio application built with React, TypeScript, and Express. The project showcases personal projects and provides a professional portfolio interface. It features a modern design system using shadcn/ui components with Tailwind CSS for styling, and includes both light and dark theme support.
+This is a minimal portfolio website for Parth Chaudhary, a Full Stack Developer and AI/ML Engineer. Built with React, TypeScript, and Express, the project showcases 10 projects across various categories including full-stack development, AI/ML, frontend development, and CSS animations. The design follows a clean, minimal aesthetic inspired by Parse.bot with black and white color schemes, featuring project filtering, theme switching, and comprehensive contact sections.
 
 # User Preferences
 

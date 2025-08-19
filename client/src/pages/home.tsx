@@ -12,7 +12,15 @@ import {
   Twitter, 
   Globe,
   Code,
-  Cpu
+  Cpu,
+  Database,
+  Settings,
+  Users,
+  Brain,
+  Zap,
+  Monitor,
+  Server,
+  Palette
 } from "lucide-react";
 
 type ProjectCategory = "all" | "fullstack" | "ai-ml" | "frontend" | "css-animations" | "open-source";
@@ -156,26 +164,32 @@ const filterButtons = [
 const skillCategories = [
   {
     title: "Frontend Development",
+    icon: Monitor,
     skills: ["React", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"]
   },
   {
     title: "Backend Development", 
+    icon: Server,
     skills: ["Node.js", "Express.js", "MongoDB", "REST APIs", "Authentication"]
   },
   {
     title: "AI/ML Engineering",
+    icon: Brain,
     skills: ["Python", "YOLO", "OpenCV", "Computer Vision", "Machine Learning"]
   },
   {
     title: "Tools & Technologies",
+    icon: Settings,
     skills: ["Git", "GitHub", "VS Code", "Postman", "Vercel"]
   },
   {
     title: "Development Practices",
+    icon: Zap,
     skills: ["Responsive Design", "Version Control", "Agile", "Testing", "Deployment"]
   },
   {
     title: "Soft Skills",
+    icon: Users,
     skills: ["Problem Solving", "Team Collaboration", "Communication", "Learning Agility", "Adaptability"]
   }
 ];
@@ -239,9 +253,9 @@ export default function Home() {
         </div>
       </nav>
 
-      <main className="pt-20">
+      <main className="pt-16">
         {/* Hero Section */}
-        <section className="min-h-screen flex items-center justify-center px-6">
+        <section className="min-h-screen flex items-center justify-center px-6 -mt-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="animate-slide-up">
               <img 
@@ -287,7 +301,7 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 px-6">
+        <section id="about" className="min-h-screen flex items-center py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">About Me</h2>
             
@@ -412,7 +426,7 @@ export default function Home() {
         </section>
 
         {/* Skills Section */}
-        <section id="skills" className="py-20 px-6">
+        <section id="skills" className="min-h-screen flex items-center py-20 px-6">
           <div className="max-w-6xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-center">Tech Skills</h2>
             <p className="text-lg text-muted-foreground text-center mb-12">
@@ -420,30 +434,36 @@ export default function Home() {
             </p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {skillCategories.map((category) => (
-                <div key={category.title} className="space-y-4">
-                  <h3 className="text-xl font-semibold text-center mb-4">
-                    {category.title}
-                  </h3>
-                  <div className="flex flex-wrap justify-center gap-2">
-                    {category.skills.map((skill) => (
-                      <Badge 
-                        key={skill} 
-                        variant="secondary"
-                        className="text-sm py-1 px-3"
-                      >
-                        {skill}
-                      </Badge>
-                    ))}
+              {skillCategories.map((category) => {
+                const IconComponent = category.icon;
+                return (
+                  <div key={category.title} className="space-y-4">
+                    <div className="flex items-center justify-center gap-3 mb-4">
+                      <IconComponent className="w-6 h-6 text-primary" />
+                      <h3 className="text-xl font-semibold">
+                        {category.title}
+                      </h3>
+                    </div>
+                    <div className="flex flex-wrap justify-center gap-2">
+                      {category.skills.map((skill) => (
+                        <Badge 
+                          key={skill} 
+                          variant="secondary"
+                          className="text-sm py-1 px-3"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-20 px-6 bg-muted/30">
+        <section id="contact" className="min-h-screen flex items-center py-20 px-6 bg-muted/30">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
             <p className="text-lg text-muted-foreground mb-12">
@@ -502,6 +522,46 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      {/* Footer */}
+      <footer className="py-8 px-6 border-t border-border bg-background">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div className="text-sm text-muted-foreground">
+              © 2024 Parth Chaudhary. All rights reserved.
+            </div>
+            <div className="flex space-x-6">
+              <a 
+                href="https://github.com/Pikolosan" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                data-testid="footer-github"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://linkedin.com/in/parthchaudhary" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                data-testid="footer-linkedin"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a 
+                href="https://twitter.com/parthchaudhary" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+                data-testid="footer-twitter"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
