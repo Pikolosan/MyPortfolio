@@ -7,12 +7,16 @@
       "config": {
         "distDir": "dist"
       }
+    },
+    {
+      "src": "api/index.ts",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/api/index.js"
+      "dest": "/api/index.ts"
     },
     {
       "handle": "filesystem"
@@ -21,10 +25,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "functions": {
-    "api/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  }
+  ]
 }
