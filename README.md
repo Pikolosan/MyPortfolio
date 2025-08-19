@@ -1,4 +1,5 @@
 # Portfolio Website Deployment Guide
+<img width="1901" height="977" alt="image" src="https://github.com/user-attachments/assets/6fcccbd4-9e0e-43a1-85d1-5b5e1401b6ca" />
 
 ## Deploy to Vercel
 
