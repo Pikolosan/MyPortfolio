@@ -123,11 +123,6 @@ The website is fully responsive and optimized for:
 
 ## 🌐 Deployment
 
-### Option 1: Replit Deployment
-1. Click the "Deploy" button in your Replit workspace
-2. Follow the deployment wizard
-3. Your site will be available at `your-repl-name.replit.app`
-
 ### Option 2: Vercel Deployment
 1. Install Vercel CLI: `npm i -g vercel`
 2. Run `vercel` in project directory
@@ -149,10 +144,9 @@ The website is fully responsive and optimized for:
 
 ## 📧 Contact
 
-- **Email**: [Your Email]
-- **LinkedIn**: [Your LinkedIn]
+- **Email**: parthchaudhary.jc@yahoo.com
+- **LinkedIn**: https://www.linkedin.com/in/parth-chaudhary-aa82ab262/
 - **GitHub**: https://github.com/Pikolosan
-- **Twitter**: [Your Twitter]
 
 ## 📝 License
 
@@ -160,4 +154,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-Built with ❤️ by Parth Chaudhary
+Built by Parth Chaudhary

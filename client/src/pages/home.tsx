@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent,CardFooter } from "@/components/ui/card";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
+import myImage from "../components/resources/1746013572161.jpg";
+import Resume from "../components/resources/ParthChaudhary_Resume.pdf";
 import { 
   Github, 
   ExternalLink, 
@@ -258,16 +260,17 @@ export default function Home() {
         <section className="min-h-screen flex items-center justify-center px-6 -mt-16">
           <div className="max-w-4xl mx-auto text-center">
             <div className="animate-slide-up">
+              {/* Enlarged image */}
               <img 
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150" 
+                src={myImage} 
                 alt="Professional headshot" 
-                className="w-32 h-32 rounded-full mx-auto mb-8 object-cover border-4 border-background shadow-lg"
+                className="w-48 h-48 rounded-full mx-auto mb-8 object-cover border-4 border-background shadow-lg"
                 data-testid="profile-image"
               />
               
-              <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-                Parth<br />
-                <span className="text-primary">Chaudhary</span>
+              {/* Smaller heading & keep name on one line until forced to wrap */}
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight whitespace-nowrap overflow-hidden text-ellipsis">
+                Parth <span className="text-primary">Chaudhary</span>
               </h1>
               
               <p className="text-xl md:text-2xl text-muted-foreground mb-8 font-light">
@@ -279,7 +282,7 @@ export default function Home() {
                 Passionate about creating seamless user experiences powered by cutting-edge technology.
               </p>
               
-              <div className="flex justify-center space-x-4">
+              <div className="flex flex-wrap justify-center gap-4">
                 <Button 
                   onClick={() => scrollToSection('projects')}
                   className="px-8 py-3"
@@ -287,25 +290,41 @@ export default function Home() {
                 >
                   View Projects
                 </Button>
-                <Button 
+
+                {/*<Button 
                   variant="outline"
                   onClick={() => scrollToSection('contact')}
                   className="px-8 py-3"
                   data-testid="contact-btn"
                 >
                   Get In Touch
+                </Button> */}
+
+                {/* Resume Button - opens in new tab */}
+                <Button
+                  asChild
+                  variant="outline"
+                  className="px-6 py-1 border transition-colors
+                    bg-white text-black hover:bg-gray-100 
+                    dark:bg-gray-900 dark:text-white dark:border-gray-700 dark:hover:bg-gray-800"
+                  data-testid="resume-btn"
+                >
+                  <a href={Resume} target="_blank" rel="noopener noreferrer">
+                    Download Resume
+                  </a>
                 </Button>
               </div>
             </div>
           </div>
         </section>
 
+
         {/* About Section */}
         <section id="about" className="min-h-screen flex items-center py-20 px-6">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center">About Me</h2>
             
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-14 items-center">
               <div>
                 <img 
                   src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=400" 
@@ -315,7 +334,7 @@ export default function Home() {
                 />
               </div>
               
-              <div className="space-y-6">
+              <div className="space-y-9">
                 <p className="text-lg leading-relaxed text-muted-foreground">
                   I'm a passionate developer with expertise in <strong className="text-foreground">Full Stack Web Development</strong> 
                   and <strong className="text-foreground">Artificial Intelligence/Machine Learning</strong>.
@@ -361,18 +380,15 @@ export default function Home() {
 
             {/* Projects Grid */}
             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-              {filteredProjects.map((project) => (
-                <Card 
-                  key={project.id} 
-                  className="project-card overflow-hidden h-full"
-                  data-testid={`project-${project.id}`}
-                >
+              {filteredProjects.map((project) => {
+              return (
+                  <Card key={project.id} className="overflow-hidden flex flex-col">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-52 object-cover"
                   />
-                  <CardContent className="p-6 flex flex-col h-full">
+                  <CardContent className="overflow-hidden flex-grow mt-5">
                     <div className="flex items-center gap-2 mb-3">
                       <Badge className={project.badgeColor}>
                         {project.badge}
@@ -392,35 +408,54 @@ export default function Home() {
                         </span>
                       ))}
                     </div>
-                    <div className="flex justify-end space-x-2 mt-auto">
+                  </CardContent>
+
+                  <CardFooter className="mt-auto">
+                    {/* Buttons */}
+                    <div className="flex justify-start space-x-2 mt-4">
                       {project.githubUrl && (
                         <Button
                           variant="ghost"
-                          size="icon"
+                          size="sm"
                           asChild
-                          data-testid={`github-${project.id}`}
+                          className="text-muted-foreground hover:text-blue-500 hover:bg-transparent"
                         >
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-4 h-4" />
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center p-2"
+                          >
+                            <Github className="w-5 h-5" />
+                            <span className="ml-2">View on GitHub</span>
                           </a>
                         </Button>
                       )}
+
                       {project.liveUrl && (
                         <Button
                           variant="ghost"
-                          size="icon"
+                          size="sm"
                           asChild
-                          data-testid={`live-${project.id}`}
+                          className="text-muted-foreground hover:text-green-500 hover:bg-transparent"
                         >
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4" />
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center p-2"
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                            <span className="ml-2">Live Demo</span>
                           </a>
                         </Button>
                       )}
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  </CardFooter>
+                  </Card>
+
+                );
+              })}
             </div>
           </div>
         </section>
@@ -477,7 +512,7 @@ export default function Home() {
                 asChild
                 data-testid="email-contact"
               >
-                <a href="mailto:parth@example.com">
+                <a href="mailto:parthchaudhary.jc@yahoo.com">
                   <Mail className="w-4 h-4" />
                   Email
                 </a>
@@ -489,7 +524,7 @@ export default function Home() {
                 asChild
                 data-testid="linkedin-contact"
               >
-                <a href="https://linkedin.com/in/parthchaudhary" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/parth-chaudhary-aa82ab262/" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="w-4 h-4" />
                   LinkedIn
                 </a>
@@ -507,7 +542,7 @@ export default function Home() {
                 </a>
               </Button>
               
-              <Button 
+              {/* <Button 
                 variant="outline" 
                 className="flex items-center gap-2 px-6 py-3"
                 asChild
@@ -517,7 +552,7 @@ export default function Home() {
                   <Twitter className="w-4 h-4" />
                   Twitter
                 </a>
-              </Button>
+              </Button> */}
             </div>
           </div>
         </section>
@@ -541,7 +576,7 @@ export default function Home() {
                 <Github className="w-5 h-5" />
               </a>
               <a 
-                href="https://linkedin.com/in/parthchaudhary" 
+                href="https://www.linkedin.com/in/parth-chaudhary-aa82ab262/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-foreground transition-colors"
