@@ -71,7 +71,7 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     technologies: ["HTML", "CSS", "JavaScript"],
     githubUrl: "https://github.com/Pikolosan/Nike-Landing-Page",
-    liveUrl: "https://pikolosan.github.io/IPhone15-Pro-Hosting/",
+    liveUrl: "https://nike-landing-page-ab592u2mj-pikolosans-projects.vercel.app/",
     badge: "Frontend",
     badgeColor: "bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200"
   },
