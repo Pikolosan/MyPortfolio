@@ -49,6 +49,7 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     technologies: ["React", "Node.js", "MongoDB"],
     githubUrl: "https://github.com/Pikolosan/StayEase-Airbnb-Clone-",
+    liveUrl: "https://stayease-airbnb-clone.onrender.com/listings",
     badge: "Full Stack",
     badgeColor: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
   },
@@ -83,6 +84,7 @@ const projects: Project[] = [
     image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     technologies: ["React", "Express", "MySQL"],
     githubUrl: "https://github.com/Pikolosan/Car-Rental-Website---College-Project-",
+    liveUrl: "https://car-rental-website-college-project-djjv.onrender.com",
     badge: "Full Stack",
     badgeColor: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200"
   },
